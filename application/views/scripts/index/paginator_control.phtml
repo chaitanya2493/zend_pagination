@@ -1,0 +1,26 @@
+<?php 
+if($this->pageCount): ?>
+<div id="paginator">
+	<ul class="pagination">
+	<?php if(isset($this->first)): ?>
+		<li><a href="?page=<?php echo $page=$this->first; ?> "> First </a></li>
+	<?php endif;
+	if(isset($this->previous)): ?>
+		<li><a href="?page= <?php echo $page=$this->previous; ?> "> Previous </a></li>
+	<?php endif; 
+	foreach($this->pagesInRange as $page):
+		if($this->current==$page): ?>
+			<li><a class="current"><?php echo $page; ?> </a></li>
+		<?php else: ?>
+		<li><a href="?page=<?php echo $page; ?> "> <?php echo $page; ?> </a></li>
+		<?php endif;?>
+	<?php endforeach;?>
+	<?php if(isset($this->next)): ?>
+		<li><a href="?page=<?php echo $page=$this->next; ?> "> Next</a></li>
+	<?php endif;?>
+	<?php if(isset($this->last)): ?>
+		<li><a href="?page=<?php echo $page=$this->last; ?> "> Last</a></li>
+	<?php endif; ?>
+	</ul>
+</div>
+<?php endif; ?> 
